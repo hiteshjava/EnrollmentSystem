@@ -1,0 +1,28 @@
+<div>
+    <h5 class="h1-responsive font-weight-bold text-center  backC">Enrollees</h5>
+    <!-- <div class="d-flex p-2 col-example">Enrollees</div> -->
+    <div class="justify-content-center tableDiv">
+
+        <table class="table table-striped col-md-10">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col" >Name</th>
+                    <th scope="col">Activation Status</th>
+                    <th scope="col">Date of Birth</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let en of enrollees" (click)="selectRow(en.id)" style="cursor: pointer;"> 
+                    <th scope="row">{{ en.id }}</th>
+                    <td>{{en.name}}</td>
+                    <td *ngIf="en.active">Active</td>
+                    <td *ngIf="!en.active">In-Active</td>
+                    <td>{{en.dateOfBirth}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+</div>

@@ -1,0 +1,36 @@
+{
+    "response":[
+        {
+            "id":"0001",
+            "name":"Jai",
+            "active":true,
+            "dateOfBirth":"23-06-1992"
+        },
+        {
+            "id":"0002",
+            "name":"Michel",
+            "active":false,
+            "dateOfBirth":"01-06-1993"
+        },
+        {
+            "id":"0004",
+            "name":"Michel",
+            "active":false,
+            "dateOfBirth":"01-06-1993"
+        },
+        {
+            "id":"0003",
+            "name":"Michel",
+            "active":false,
+            "dateOfBirth":"01-06-1993"
+        }
+
+    ],
+    "item":
+        {
+            "id":"0001",
+            "name":"Jai",
+            "active":true,
+            "dateOfBirth":"23-06-1992"
+        }
+}

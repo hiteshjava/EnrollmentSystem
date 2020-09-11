@@ -1,0 +1,36 @@
+
+<div class="card-body px-lg-5">
+    <!-- Form -->
+    <form [formGroup]="loginForm" class="text-center" style="color: #757575;" action="#!" class="formLogin" (ngSubmit)="onSubmit()">
+
+        <strong>Login</strong>
+
+        
+        <!-- Name -->
+        <div class="md-form mt-3">
+            <input type="email" id="username" formControlName="username"  class="form-control" 
+            [ngClass]="{ 'is-invalid': submitted && f.username.errors }">
+            <label for="username">Email</label>
+            <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                <div *ngIf="f.username.errors.required">Username is required</div>
+            </div>
+        </div>
+        
+
+        <!-- E-mai -->
+        <div class="md-form">
+            <input type="password" id="password" class="form-control" formControlName="password" 
+            [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+            <label for="password">Password</label>
+            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required">password is required</div>
+            </div>
+        </div>
+
+        <!-- Sign in button -->
+        <button class="btn btn-info btn-block z-depth-0 my-4 waves-effect" type="submit">Login </button>
+        <p style="color: #aa00ff;">Enter dummy email/username and passoword to login</p>
+    </form>
+    <!-- Form -->
+    
+</div>

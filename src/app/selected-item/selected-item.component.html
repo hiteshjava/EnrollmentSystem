@@ -1,0 +1,94 @@
+<div >
+    <h5 class="h1-responsive font-weight-bold text-center backC">Enrollee Details : {{id}}</h5>
+    <div class="justify-content-center" *ngIf="isLoaded && isReadMode">
+        <div class="card">
+            <div class="card-body">
+
+                <p class="text-center w-responsive mx-auto mb-5">
+                    Name : {{item.name}}
+                </p>
+                <p class="text-center w-responsive mx-auto mb-5">
+                    Date of Birth : {{item.dateOfBirth}}
+                </p>
+                <p class="text-center w-responsive mx-auto mb-5">
+                    Active Status : {{item.active}}
+                </p>
+                <p class="text-center w-responsive mx-auto mb-5">
+                    Id : {{item.id}}
+                </p>
+                <p class="text-center w-responsive mx-auto mb-5">
+                    <button type="button" class="btn btn-info" (click)="edit()">Edit </button> &nbsp;&nbsp;
+                    <button type="button" class="btn btn-info" (click)="backToList()">Back </button>
+                </p>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="justify-content-center" *ngIf="isLoaded && isWriteMode">
+        <div class="card">
+            <div class="card-body">
+                <form [formGroup]="editForm" class="text-center" style="color: #757575;" action="#!" class="formLogin"
+                    (ngSubmit)="onSubmit()">
+
+
+                    <div class="form-group row">
+                        <!-- Material input -->
+                        <label for="name" class="col-sm-4 col-form-label">ID</label>
+                        <div class="col-sm-8">
+                            <div class="md-form mt-0">
+                                <input type="text" class="form-control" id="id" formControlName="id" readonly disabled>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <!-- Material input -->
+                        <label for="name" class="col-sm-4 col-form-label">Name</label>
+                        <div class="col-sm-8">
+                            <div class="md-form mt-0">
+                                <input type="name" class="form-control" id="name" formControlName="name"
+                                    [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
+                            </div>
+                            <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                                <div *ngIf="f.name.errors.required">Name is required</div>
+                            </div>
+                        </div>
+                    </div>
+                  
+
+
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="defaultChecked2"
+                            formControlName="active">
+                        <label class="custom-control-label" for="defaultChecked2">Active Status</label>
+                        <div *ngIf="submitted && f.active.errors" class="invalid-feedback">
+                            <div *ngIf="f.active.errors.required">active status is required</div>
+                        </div>
+
+                       
+                    </div>
+                    <div class="form-group row">
+                        <!-- Material input -->
+                        <label for="name" class="col-sm-4 col-form-label">Date of Birth</label>
+                        <div class="col-sm-8">
+                            <div class="md-form mt-0">
+                                <input type="text" class="form-control" id="dateOfBirth"
+                                    formControlName="dateOfBirth" readonly disabled>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- Sign in button -->
+
+                    <p class="text-center w-responsive mx-auto mb-5">
+                        <button type="submit" class="btn btn-info" >Save </button> &nbsp;&nbsp;
+                        <button type="button" class="btn btn-info" (click)="cancell(id)">Cancel </button>
+                    </p>
+                    
+                </form>
+
+            </div>
