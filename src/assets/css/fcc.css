@@ -37,3 +37,10 @@ table{
     background: rgba(3, 169, 244, 0.1);
     padding: 10px;
 }
+.red{
+    color: red;
+    font-style: italic;
+}
+.green{
+    color: green;
+}
