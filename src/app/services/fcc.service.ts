@@ -13,14 +13,14 @@ export class FccService {
     
     getEnrollees(){
         //return this.http.get('./assets/jsons/sample.json');
-        this.http.get(this.serverUrl+"enrollees");
+        return this.http.get(this.serverUrl+"enrollees");
     }
     getItemDetails(id){
         //return this.http.get('./assets/jsons/sample.json');
-        this.http.get(this.serverUrl+"enrollees/"+id);
+        return this.http.get(this.serverUrl+"enrollees/"+id);
     }
 
-    saveItem(item){
-       return this.http.put(this.serverUrl+"enrollees/"+item.id, item);
+    saveItem(id,item){
+       return this.http.put(this.serverUrl+"enrollees/"+id, item);
     }
 }
