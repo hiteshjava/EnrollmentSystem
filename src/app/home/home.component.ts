@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
    getEnrollees(){
      let enr = this.service.getEnrollees().subscribe(data => {
        let dataa: any = data;
-      this.enrollees = dataa.response;
+      this.enrollees = dataa;
      });
      this.enrSub.push(enr);
    }
