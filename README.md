@@ -24,6 +24,5 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 ## Further help
 
-1. http://localhost:8080/ : used as a rest point end url
-2. enter dummy(anything) username and password
-3. attached the screen shots in "enrollment system.docx"
+1. http://localhost:8080/ : used as a rest point end url.
+2. enter dummy(anything) username and password.
