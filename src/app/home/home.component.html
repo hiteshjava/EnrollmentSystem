@@ -16,8 +16,8 @@
                 <tr *ngFor="let en of enrollees" (click)="selectRow(en.id)" style="cursor: pointer;"> 
                     <th scope="row">{{ en.id }}</th>
                     <td>{{en.name}}</td>
-                    <td *ngIf="en.active">Active</td>
-                    <td *ngIf="!en.active">In-Active</td>
+                    <td *ngIf="en.active" class="green">Active</td>
+                    <td *ngIf="!en.active" class="red">In-Active</td>
                     <td>{{en.dateOfBirth}}</td>
                 </tr>
             </tbody>
