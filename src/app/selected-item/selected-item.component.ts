@@ -20,7 +20,7 @@ export class SelectedItemComponent implements OnInit,OnDestroy {
   isWriteMode = false;
   editForm :FormGroup;
   submitted = false;
-  msg = "";
+  
 
   constructor(private formBuilder :FormBuilder, private router: Router,
     private route: ActivatedRoute,private service: FccService) { }
@@ -45,7 +45,6 @@ export class SelectedItemComponent implements OnInit,OnDestroy {
   get f() { return this.editForm.controls; }
 
   getItemDetails(id){
-    this.msg = "";
     this.isLoaded = false;
     let items = this.service.getItemDetails(id).subscribe(data => {
       let dataa : any = data;
@@ -58,7 +57,6 @@ export class SelectedItemComponent implements OnInit,OnDestroy {
   }
 
   edit(){
-    this.msg = "";
     this.isReadMode = false;
     this.isWriteMode = true;
     this.f.id.setValue(this.item.id);
@@ -71,19 +69,21 @@ export class SelectedItemComponent implements OnInit,OnDestroy {
   }
 
   onSubmit(){
-    this.msg = "";
     this.submitted = true;
-    console.log(this.f.name);
-      let saveItem = new EnrolleItem(this.f.id,
-      this.f.name,
-      this.f.active,
-      this.f.dateOfBirth);
+    let id=this.f.id.value;
+    //console.log(this.f.id.value);
+      let saveItem = { 
+       "name":this.f.name.value,
+      "active":this.f.active.value,
+      "dateOfBirth":this.f.dateOfBirth.value};
 
-      let res =this.service.saveItem(saveItem).subscribe(data => {
+      let res =this.service.saveItem(id,saveItem).subscribe(data => {
         let dataa : any = data;
-        if(dataa.id  != null){
-          this.msg = "Saved Successfully";
-        }
+       this.getItemDetails(id);
+        alert("Saved Successfully..!");
+      },
+      err=>{
+        alert("Save Failed!!");
       }); 
       this.subs.push(res);     
   }
